@@ -1,0 +1,34 @@
+version: '3'
+services:
+  django:
+    restart: always
+    build: ./django
+    expose:
+      - "8000"
+    depends_on:
+      - postgres
+    command: bash -c "python manage.py migrate && gunicorn my_docker_project.wsgi -b 0.0.0.0:8000"
+    volumes:
+      - "staticdata:/opt/static/"
+  nginx:
+    restart: always
+    image: nginx
+    depends_on:
+      - django
+    ports:
+      - "80:80"
+    volumes:
+      - "./nginx/:/etc/nginx/"
+      - "staticdata:/opt/apps/static/"
+  postgres:
+    image: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - "dbdata:/var/lib/postgresql/data"
+    environment:
+      POSTGRES_PASSWORD: test_318
+
+volumes:
+  dbdata:
+  staticdata:
