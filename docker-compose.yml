@@ -10,6 +10,8 @@ services:
     command: bash -c "python manage.py migrate && gunicorn my_docker_project.wsgi -b 0.0.0.0:8000"
     volumes:
       - "staticdata:/opt/static/"
+    ports:
+      - "8000:8000"
   nginx:
     restart: always
     image: nginx
