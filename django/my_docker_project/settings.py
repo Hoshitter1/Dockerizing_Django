@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'base_app',
 ]
 
 MIDDLEWARE = [
@@ -80,13 +81,35 @@ WSGI_APPLICATION = 'my_docker_project.wsgi.application'
 #     }
 # }
 DATABASES = {
+    ##FOR postgreSQL
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'NAME': 'postgres',
+    #     'USER': 'postgres',
+    #     'PASSWORD' : 'test_318',
+    #     'HOST' : 'postgres',
+    #     'PORT' : 5432,
+    # }
+    #For mysql on docker
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'sample',
+    #     'USER': 'root',
+    #     'PASSWORD': 'password',
+    #     'HOST': 'host',
+    #     'PORT': '5432',
+    #     'OPTIONS': {
+    #         'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+    #     }
+    # }
+    #For mysql on local
+    #ref:https://qiita.com/salvage0707/items/2713d062971d528ab211
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD' : 'test_318',
-        'HOST' : 'postgres', 
-        'PORT' : 5432,
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'sample',
+        'USER': 'root',
+        'HOST': '',
+        'PORT': '',
     }
 }
 
