@@ -1,4 +1,4 @@
-FROM django2.1:latest
+FROM python:3.7.2
 
 ENV APP_PATH /opt/apps
 
