@@ -16,13 +16,13 @@ Please make sure to update tests as appropriate.
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
 
-### System structure
-#### Master
+## System structure
+### Master
 WebFramework: Django
 DB: PostgreSQL
 WebServer: Nginx
 (ApplicationServer: Gunicorn)
 
-## celery_redis
+### celery_redis
 Basic structure + celery + redis
 For asynchronous task queue/job queue
