@@ -1,7 +1,6 @@
 version: '3'
 services:
   django:
-    restart: always
     build: ./django
     expose:
       - "8000"
@@ -12,8 +11,9 @@ services:
       - "staticdata:/opt/static/"
     ports:
       - "8000:8000"
+    tty: true
+    stdin_open: true
   nginx:
-    restart: always
     image: nginx
     depends_on:
       - django
@@ -22,6 +22,8 @@ services:
     volumes:
       - "./nginx/:/etc/nginx/"
       - "staticdata:/opt/apps/static/"
+    tty: true
+    stdin_open: true
   postgres:
     image: postgres
     ports:
@@ -30,7 +32,8 @@ services:
       - "dbdata:/var/lib/postgresql/data"
     environment:
       POSTGRES_PASSWORD: test_318
-
+    tty: true
+    stdin_open: true
 volumes:
   dbdata:
   staticdata:
