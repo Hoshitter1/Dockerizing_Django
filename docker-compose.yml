@@ -2,19 +2,22 @@ version: '3'
 services:
   django:
     build: ./django
+    container_name: "django_container"
     expose:
       - "8000"
-    depends_on:
-      - postgres
     command: bash -c "python manage.py migrate && gunicorn my_docker_project.wsgi -b 0.0.0.0:8000"
     volumes:
-      - "staticdata:/opt/static/"
+      - "./django:/opt/apps/"
+#      - TODO add static data to share with nginx
     ports:
       - "8000:8000"
+    depends_on:
+      - db
     tty: true
     stdin_open: true
   nginx:
     image: nginx
+    container_name: "nginx_django"
     depends_on:
       - django
     ports:
@@ -24,14 +27,17 @@ services:
       - "staticdata:/opt/apps/static/"
     tty: true
     stdin_open: true
-  postgres:
+  db:
     image: postgres
-    ports:
-      - "5432:5432"
-    volumes:
-      - "dbdata:/var/lib/postgresql/data"
+    container_name: "postgres_db"
     environment:
-      POSTGRES_PASSWORD: test_318
+      - POSTGRES_USER=user_dev
+      - POSTGRES_PASSWORD=pass_dev
+      - POSTGRES_DB=develop_db
+    ports:
+      - 5432:5432
+    volumes:
+      - "./db:/var/lib/postgresql/data"
     tty: true
     stdin_open: true
 volumes:

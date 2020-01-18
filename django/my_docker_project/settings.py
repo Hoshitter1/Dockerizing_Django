@@ -82,14 +82,14 @@ WSGI_APPLICATION = 'my_docker_project.wsgi.application'
 # }
 DATABASES = {
     ##FOR postgreSQL
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #     'NAME': 'postgres',
-    #     'USER': 'postgres',
-    #     'PASSWORD' : 'test_318',
-    #     'HOST' : 'postgres',
-    #     'PORT' : 5432,
-    # }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'develop_db',
+        'USER': 'user_dev',
+        'PASSWORD' : 'pass_dev',
+        'HOST' : 'db',
+        'PORT' : 5432,
+    }
     #For mysql on docker
     # 'default': {
     #     'ENGINE': 'django.db.backends.mysql',
@@ -104,13 +104,13 @@ DATABASES = {
     # }
     #For mysql on local
     #ref:https://qiita.com/salvage0707/items/2713d062971d528ab211
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'sample',
-        'USER': 'root',
-        'HOST': '',
-        'PORT': '',
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'sample',
+    #     'USER': 'root',
+    #     'HOST': '',
+    #     'PORT': '',
+    # }
 }
 
 # Password validation
