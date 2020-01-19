@@ -130,6 +130,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+#TODO do not push files under db
 # db
-db/
+db/*
 
