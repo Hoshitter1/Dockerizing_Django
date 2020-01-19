@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
@@ -27,7 +26,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'base_app',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -70,7 +69,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'my_docker_project.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
@@ -86,11 +84,11 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'develop_db',
         'USER': 'user_dev',
-        'PASSWORD' : 'pass_dev',
-        'HOST' : 'db',
-        'PORT' : 5432,
+        'PASSWORD': 'pass_dev',
+        'HOST': 'db',
+        'PORT': 5432,
     }
-    #For mysql on docker
+    # For mysql on docker
     # 'default': {
     #     'ENGINE': 'django.db.backends.mysql',
     #     'NAME': 'sample',
@@ -102,8 +100,8 @@ DATABASES = {
     #         'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
     #     }
     # }
-    #For mysql on local
-    #ref:https://qiita.com/salvage0707/items/2713d062971d528ab211
+    # For mysql on local
+    # ref:https://qiita.com/salvage0707/items/2713d062971d528ab211
     # 'default': {
     #     'ENGINE': 'django.db.backends.mysql',
     #     'NAME': 'sample',
@@ -131,7 +129,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
@@ -144,7 +141,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/

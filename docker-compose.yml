@@ -1,6 +1,7 @@
 version: '3'
 services:
   django:
+#    restart: always
     build: ./django
     container_name: "django_container"
     expose:
@@ -8,9 +9,11 @@ services:
     command: bash -c "python manage.py migrate && gunicorn my_docker_project.wsgi -b 0.0.0.0:8000"
     volumes:
       - "./django:/opt/apps/"
+#      - "staticdata:/opt/static/"
 #      - TODO add static data to share with nginx
     ports:
       - "8000:8000"
+#    TODO depends on does wait for db to start
     depends_on:
       - db
     tty: true
@@ -41,5 +44,6 @@ services:
     tty: true
     stdin_open: true
 volumes:
-  dbdata:
+#  dbdata:
+#  For sharing data between containers issue#11
   staticdata:
