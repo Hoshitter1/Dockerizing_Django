@@ -16,6 +16,11 @@ Do this again to start container
 docker-compose down -v
 ```
 
+Access to the link below to see api
+[link_api](localhost:80/api)
+
+
+
 
 #### To access
 ##### 1. Go to your browser
