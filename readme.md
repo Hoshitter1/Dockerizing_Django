@@ -13,7 +13,7 @@ docker-compose down -v
 ```
 Do this again to start container
 ```bash
-docker-compose down -v
+docker-compose up
 ```
 
 Access to the link below to see api
