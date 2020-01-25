@@ -7,6 +7,15 @@ DD is the repository to learn django and create a basic set of scripts to get st
 ```bash
 docker-compose up
 ```
+Delete existing volume to refresh static data(restframework)
+```bash
+docker-compose down -v
+```
+Do this again to start container
+```bash
+docker-compose down -v
+```
+
 
 #### To access
 ##### 1. Go to your browser

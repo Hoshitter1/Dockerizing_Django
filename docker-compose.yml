@@ -10,12 +10,8 @@ services:
     volumes:
       - "./django:/opt/apps/"
       - "staticdata:/opt/static/"
-    #      - TODO add static data to share with nginx
     ports:
       - "8000:8000"
-    #    TODO depends on does wait for db to start
-    #    depends_on:
-    #      - db
     links:
       - db
     tty: true
@@ -23,8 +19,6 @@ services:
   nginx:
     image: nginx
     container_name: "nginx_django"
-    #    depends_on:
-    #      - django
     links:
       - django
     ports:
@@ -48,6 +42,7 @@ services:
     tty: true
     stdin_open: true
 volumes:
+  #  TODO: Should there be shared data for db?
   #  dbdata:
   #  For sharing data between containers issue#11
   staticdata:
