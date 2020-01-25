@@ -17,6 +17,7 @@ services:
     tty: true
     stdin_open: true
   nginx:
+    restart: always
     image: nginx
     container_name: "nginx_django"
     links:
@@ -29,6 +30,7 @@ services:
     tty: true
     stdin_open: true
   db:
+    restart: always
     image: postgres
     container_name: "postgres_db"
     environment:
