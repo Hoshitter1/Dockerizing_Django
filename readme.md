@@ -22,15 +22,6 @@ Access to the link below to see api
 localhost:80/api
 ```
 
-
-
-
-#### To access
-##### 1. Go to your browser
-##### 2. Type [base url](localhost:80) in url bar
-#### For django admin
-[admin page](localhost:80/admin)
-
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
