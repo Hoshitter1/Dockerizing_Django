@@ -4,9 +4,9 @@ services:
     restart: always
     build: ./django
     container_name: "django_container"
-#    expose:
+    #    expose:
     #      - "8000"
-    command: bash -c "python manage.py migrate && gunicorn my_docker_project.wsgi -b 0.0.0.0:8000"
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && gunicorn my_docker_project.wsgi -b 0.0.0.0:8000"
     volumes:
       - "./django:/opt/apps/"
       - "staticdata:/opt/static/"
