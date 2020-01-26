@@ -9,6 +9,8 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class EntrySerializer(serializers.ModelSerializer):
+    author = UserSerializer()
+
     class Meta:
         model = Entry
         fields = ('text', 'created_at', 'updated_at', 'author')
