@@ -1,6 +1,15 @@
 # Dockerizing_Django(DD)
 
-DD is the repository to learn django and create a basic set of scripts to get started easily
+DD project started merely for learning django, docker and etc. But now, the intention is changing like follows.
+
+## Target users
+
+Target users vary depending on a branch.
+### Master (General)
+For those of you who want to learn or use django, docker, etc for their whatever project.
+
+### Celery-redis (Machine learning oriented)
+For AI engineer/data scientists who knows how to make models and stuff but don't know how to deploy API.
 
 ## Usage
 
