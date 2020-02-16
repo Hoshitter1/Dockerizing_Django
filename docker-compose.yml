@@ -6,7 +6,10 @@ services:
     container_name: "django_container"
     #    expose:
     #      - "8000"
-    command: bash -c "python manage.py makemigrations && python manage.py migrate && gunicorn my_docker_project.wsgi -b 0.0.0.0:8000"
+#    gunicorn my_docker_project.wsgi -b 0.0.0.0:8000 is for production
+#    python manage.py makemigrations && python manage.py migrate delete this later
+#    command: bash -c "python manage.py makemigrations && python manage.py migrate && gunicorn my_docker_project.wsgi -b 0.0.0.0:8000"
+    command: bash -c "python manage.py makemigrations && python manage.py migrate & python manage.py runserver 0.0.0.0:8000"
     volumes:
       - "./django:/opt/apps/"
       - "staticdata:/opt/static/"
@@ -40,11 +43,11 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - "./db:/var/lib/postgresql/data"
+      - "dbdata:/var/lib/postgresql/data"
     tty: true
     stdin_open: true
 volumes:
   #  TODO: Should there be shared data for db?
-  #  dbdata:
+  dbdata:
   #  For sharing data between containers issue#11
   staticdata:
