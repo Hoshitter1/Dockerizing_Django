@@ -134,4 +134,4 @@ dmypy.json
 **/migrations/
 
 # Exclude IDE settings
-/idea
+/.idea
