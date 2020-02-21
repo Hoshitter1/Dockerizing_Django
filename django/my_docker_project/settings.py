@@ -37,6 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'base_app',
     'rest_framework',
+    'django.contrib.sites',
+    'login',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.line',
+    'user'
 ]
 
 MIDDLEWARE = [
@@ -152,3 +159,31 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = '/opt/static'
+
+FIXTURE_DIRS = (
+   'fixtures/',
+)
+
+######################################
+# Authentication                     #
+######################################
+
+# Don't forget this little dude.
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = '/'
+
+ACCOUNT_LOGOUT_REDIRECT_URL = '/'
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+SOCIALACCOUNT_PROVIDERS = {
+    'line': {
+        'SCOPE': ['profile','openid'],
+    }
+}
+
+AUTH_USER_MODEL = 'user.User'

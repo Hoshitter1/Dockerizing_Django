@@ -22,4 +22,5 @@ from base_app.urls import router as base
 urlpatterns = [
     url('admin/', admin.site.urls),
     url(r'^api/', include(base.urls)),
+    url('auth/', include('allauth.urls')),
 ]

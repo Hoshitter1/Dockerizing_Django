@@ -1,0 +1,7 @@
+<a href="{% url 'line_login' %}">lineでログイン</a>
+
+{% if user.is_authenticated %}
+<p>ログイン済</p>
+
+<a href="{% url 'account_logout' %}">ログアウト</a>
+{% endif %}
