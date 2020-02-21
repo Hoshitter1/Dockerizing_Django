@@ -132,3 +132,6 @@ dmypy.json
 
 # django stuff
 **/migrations/
+
+# Exclude IDE settings
+/idea
