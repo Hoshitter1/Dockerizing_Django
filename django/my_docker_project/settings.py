@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.line',
+    'user'
 ]
 
 MIDDLEWARE = [
@@ -184,3 +185,5 @@ SOCIALACCOUNT_PROVIDERS = {
         'SCOPE': ['profile','openid'],
     }
 }
+
+AUTH_USER_MODEL = 'user.User'
