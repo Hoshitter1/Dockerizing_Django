@@ -12,10 +12,15 @@ For those of you who want to learn or use django, docker, etc for their whatever
 For AI engineer/data scientists who knows how to make models and stuff but don't know how to deploy API.
 
 ## Usage
-
+1.Build image from Dockerfiles
+```bash
+docker-compose build
+```
+2.Wake containers in docker-compose.yml up
 ```bash
 docker-compose up
 ```
+
 Delete existing volume to refresh static data(restframework)
 ```bash
 docker-compose down -v

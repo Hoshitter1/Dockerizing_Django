@@ -35,8 +35,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'base_app',
-    'rest_framework',
+    # 'rest_framework',
+    'django.contrib.sites',
+    # 'allauth',
+    # 'allauth.account',
+    # 'allauth.socialaccount',
 ]
 
 MIDDLEWARE = [
@@ -152,3 +155,14 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = '/opt/static'
+
+FIXTURE_DIRS = (
+    'fixtures/',
+)
+
+######################################
+# Authentication                     #
+######################################
+
+# Without this, admin/login won't be found
+SITE_ID = 1

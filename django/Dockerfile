@@ -11,7 +11,5 @@ RUN pip install psycopg2
 RUN apt update && apt install -y vim
 
 WORKDIR $APP_PATH
-#TODO delete pwd later
-RUN pwd
-#RUN $APP_PATH/wait-for-it.sh db:5432
+
 RUN python manage.py collectstatic --noinput
