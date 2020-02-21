@@ -16,11 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
-from base_app.urls import router as base
-
-
 urlpatterns = [
     url('admin/', admin.site.urls),
-    url(r'^api/', include(base.urls)),
-    url('auth/', include('allauth.urls')),
+    # url('auth/', include('allauth.urls')),
 ]
